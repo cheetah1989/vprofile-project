@@ -23,6 +23,7 @@
         <id>${NEXUS_GRP_REPO}</id>
       <username>${NEXUS_USER}</username>
       <password>${NEXUS_PASS}</password>
+      <updatePolicy>always</updatePolicy>
     </server>
   </servers>
 
