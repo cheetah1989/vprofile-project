@@ -16,6 +16,8 @@ pipeline {
         NEXUSIP='nexus01'
         NEXUSPORT = '8081'
         NEXUS_LOGIN='nexuslogin'
+        SONARSCANNER='sonarscanner'
+        SONARSERVER='sonarserver'
     }
 
     stages {
@@ -52,11 +54,11 @@ pipeline {
         stage('CODE ANALYSIS with SONARQUBE') {
           
 		  environment {
-             scannerHome = tool 'sonarscanner4'
+             scannerHome = tool '{$SONARSCANNER}'
           }
 
           steps {
-            withSonarQubeEnv('sonar-pro') {
+            withSonarQubeEnv('$SONARSERVER') {
                sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                    -Dsonar.projectName=vprofile-repo \
                    -Dsonar.projectVersion=1.0 \
