@@ -24,15 +24,15 @@ pipeline {
                 sh "mvn -s settings.xml -DskipTests install"
              }
         }
-    }
+    
 
-    stage('UNIT TEST'){
-            steps {
+        stage('UNIT TEST'){
+             steps {
                 sh 'mvn test'
             }
         }
 
-	stage('INTEGRATION TEST'){
+	    stage('INTEGRATION TEST'){
             steps {
                 sh 'mvn verify -DskipUnitTests'
             }
@@ -109,6 +109,6 @@ pipeline {
                 }
             }
         }
-
+    }
 
 }
